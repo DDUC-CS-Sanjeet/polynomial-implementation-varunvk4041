@@ -36,7 +36,7 @@ class Polynomial
         poly = new int[degree+1];
     }
     // Overloaded + operator
-    Polynomial operator+(const Polynomial &obj)
+    const Polynomial operator+(const Polynomial &obj)
     {
        int max_deg = max( this->degree,obj.degree );
        int min_deg = min( this->degree,obj.degree );
@@ -81,7 +81,7 @@ class Polynomial
        return temp;  
     }
     // Overloaded - operator
-    Polynomial operator-(Polynomial &obj)
+    const Polynomial operator-(Polynomial &obj)
     {
        int max_deg = max( this->degree,obj.degree );
        int min_deg = min( this->degree,obj.degree );
@@ -127,7 +127,7 @@ class Polynomial
     }
     
     // Overloaded = operator
-    void operator=(const Polynomial &obj)
+    const Polynomial& operator=(const Polynomial& obj)
     {
         degree = obj.degree;
         poly = new int[degree+1];
@@ -135,6 +135,7 @@ class Polynomial
         {
           poly[i] = obj.poly[i]; 
         }
+        return *this;
     }
     void storePolynomial()
     {
